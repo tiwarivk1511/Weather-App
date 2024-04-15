@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeveloperActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/backgroundImg"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="-50dp"
+                app:cardCornerRadius="60dp"
+                app:layout_constraintEnd_toEndOf="@+id/backgroundImg"
+                app:layout_constraintStart_toStartOf="@+id/backgroundImg"
+                app:layout_constraintTop_toBottomOf="@+id/backgroundImg">
+
+                <ImageView
+                    android:id="@+id/developerImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/developerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="serif"
+                android:text="Vikash Tiwari"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <TextView
+                android:id="@+id/developerRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="Software Developer"
+                app:layout_constraintEnd_toEndOf="@+id/developerName"
+                app:layout_constraintStart_toStartOf="@+id/developerName"
+                app:layout_constraintTop_toBottomOf="@+id/developerName" />
+
+
+            <TextView
+                android:id="@+id/contactTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="Contact with"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/developerRole" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardContact"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contactTxt">
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="4">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/emailBtn"
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:src="@drawable/email"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/instagram"
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:src="@drawable/linkedin"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/linkedIn"
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:src="@drawable/insta"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/github"
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/github" />
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/experitiesTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:layout_marginTop="10dp"
+                android:text="Experities"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardContact" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/experitiesCard"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/experitiesTxt">
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="6">
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:src="@drawable/android"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:src="@drawable/react_native"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:src="@drawable/java"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/kotlin"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/html" />
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/css" />
+                    </androidx.cardview.widget.CardView>
+
+
+                </GridLayout>
+            </androidx.cardview.widget.CardView>
+
+            <WebView
+                android:id="@+id/aboutDeveloperContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/experitiesCard" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
