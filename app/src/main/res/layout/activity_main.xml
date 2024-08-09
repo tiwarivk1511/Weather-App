@@ -28,6 +28,7 @@
         android:layout_height="40dp"
         android:layout_marginEnd="10dp"
         android:padding="8dp"
+        android:visibility="invisible"
         android:src="@drawable/developer_icon"
         style="@style/CustomSearchView"
         app:layout_constraintBottom_toBottomOf="@+id/search_bar"
