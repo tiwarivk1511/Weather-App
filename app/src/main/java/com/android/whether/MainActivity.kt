@@ -42,11 +42,24 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_PERMISSION_REQUEST_CODE
+            )
+        }else{
+            getLocation()
+        }
+        getLocation()
+
+
+
 
         binding.searchBar.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
-            getLocation()
+
         }
 
         binding.developerBtn.setOnClickListener {
@@ -66,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             val areaName = LocationFile.getCity(this)
             binding.currentLocation.text = areaName ?: "Unknown Location"
 
-            getAqi(areaName ?: "Unknown Location")
+
 
             if (areaName != null) {
                 LocationFile.getCoordinatesByName(this, areaName)
@@ -92,47 +105,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getAqi(location: String) {
-        val client = OkHttpClient()
-        val request = Request.Builder()
-            .url("https://api.openaq.org/v3/measurements?country_id=IN&city=$location&parameter=pm2.5")
-            .get()
-            .addHeader("accept", "application/json")
-            .build()
 
-        client.newCall(request).enqueue(object : Callback<String>, okhttp3.Callback {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                if (response.isSuccessful) {
-                    val aqiResponseBody = response.body()
-                    binding.aqiStatus.text = "AQI: $aqiResponseBody"
-                    Log.d("AQI", "AQI Response: $aqiResponseBody")
-                    updateAqiStatus("AQI Condition: $aqiResponseBody")
-                } else {
-                    showToast("Failed to fetch AQI data")
-                }
-            }
-
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.e("AQI", "Error fetching AQI data", t)
-                showToast("Failed to fetch AQI data")
-            }
-
-            override fun onFailure(call: okhttp3.Call, e: IOException) {
-                showToast("Failed to fetch AQI data")
-            }
-
-            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body()?.string()
-                    Log.d("Response", "Successful Response: $responseBody")
-                } else {
-                    val errorCode = response.code()
-                    val errorMessage = response.message()
-                    Log.e("Response", "Unsuccessful Response: Code $errorCode, Message: $errorMessage")
-                }
-            }
-        })
-    }
 
     private fun updateAqiStatus(aqiStatus: String) {
         runOnUiThread {

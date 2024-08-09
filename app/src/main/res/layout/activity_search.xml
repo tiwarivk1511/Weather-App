@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
+
         android:closeIcon="@drawable/baseline_clear_24"
         android:queryHint="Search Location"
         android:searchHintIcon="@drawable/search"
@@ -47,17 +48,6 @@
         
         app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"
         app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:hint="AQI index"
-        
-        
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/condition"
-        app:layout_constraintTop_toBottomOf="@+id/condition" />
 
     <TextView
         android:id="@+id/currentLocation"
